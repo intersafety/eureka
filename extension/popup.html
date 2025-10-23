@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>InterSafety: Eureka</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="aura"></div>
+    <div class="container">
+      <header class="hero">
+        <div class="chip" id="statusChip" aria-live="polite">Offline</div>
+        <h1>InterSafety</h1>
+        <p class="tagline">Prompt enhancer for ChatGPT</p>
+      </header>
+      <section class="panel primary">
+        <label class="switch">
+          <input type="checkbox" id="enabledToggle" />
+          <span class="slider" aria-hidden="true"></span>
+          <span class="label">Prompt improver</span>
+        </label>
+      </section>
+      <section class="panel">
+        <h2>Modes</h2>
+        <div class="voice">
+          <span class="label">Voice mode</span>
+          <div class="mode-switch" id="voiceModeSwitch" role="radiogroup" aria-label="Voice mode">
+            <button type="button" class="mode-option" data-mode="off" role="radio" aria-pressed="false">
+              Neutral
+            </button>
+            <button type="button" class="mode-option" data-mode="natural" role="radio" aria-pressed="false">
+              Natural
+            </button>
+            <button type="button" class="mode-option" data-mode="ai" role="radio" aria-pressed="false">
+              AI
+            </button>
+          </div>
+        </div>
+        <label class="switch secondary">
+          <input type="checkbox" id="jsonToggle" />
+          <span class="slider" aria-hidden="true"></span>
+          <span class="label">JSON prompting</span>
+        </label>
+      </section>
+      <footer class="status" id="status" aria-live="polite"></footer>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

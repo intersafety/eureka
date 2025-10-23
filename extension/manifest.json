@@ -1,0 +1,22 @@
+{
+  "name": "InterSafety: Eureka",
+  "description": "Improves prompts on chatgpt.com with optional tone and formatting guidance.",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://chatgpt.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "InterSafety: Eureka",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*"],
+      "js": ["contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

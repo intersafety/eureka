@@ -1,0 +1,266 @@
+:root {
+  color-scheme: dark;
+  font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 260px;
+  background: radial-gradient(circle at 10% -20%, rgba(29, 210, 232, 0.22), transparent 45%),
+    radial-gradient(circle at 90% 0%, rgba(0, 125, 255, 0.35), transparent 55%),
+    #06101b;
+  color: #e9f7ff;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  inset: auto -40px -60px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.12), transparent 65%);
+  filter: blur(0.5px);
+  pointer-events: none;
+}
+
+body::after {
+  inset: -50px 40px auto -40px;
+  transform: rotate(12deg);
+  background: radial-gradient(circle, rgba(0, 120, 255, 0.18), transparent 65%);
+}
+
+body.is-improving {
+  background: radial-gradient(circle at 20% -20%, rgba(0, 212, 255, 0.32), transparent 50%),
+    radial-gradient(circle at 80% 0%, rgba(0, 255, 191, 0.28), transparent 65%),
+    #031e2a;
+}
+
+.aura {
+  position: absolute;
+  inset: -40% 15% 35%;
+  background: linear-gradient(115deg, rgba(0, 255, 209, 0.25), rgba(0, 128, 255, 0.1));
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 1;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chip {
+  align-self: flex-start;
+  padding: 4px 10px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  background: rgba(0, 173, 239, 0.24);
+  color: #7be8ff;
+  border: 1px solid rgba(123, 232, 255, 0.35);
+  transition: background 0.25s ease, color 0.25s ease, border 0.25s ease;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(233, 247, 255, 0.7);
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+section.panel {
+  background: rgba(3, 39, 58, 0.55);
+  border-radius: 16px;
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 173, 239, 0.18);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.28);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+section.panel.primary {
+  padding-block: 18px;
+  align-items: flex-start;
+}
+
+body.is-improving section.panel.primary {
+  border-color: rgba(0, 255, 209, 0.45);
+  box-shadow: 0 14px 26px rgba(0, 217, 197, 0.2);
+}
+
+body.is-on-chatgpt .chip {
+  background: rgba(0, 182, 255, 0.35);
+  color: #bff7ff;
+  border-color: rgba(191, 247, 255, 0.6);
+}
+
+body.is-improving .chip {
+  background: rgba(0, 255, 209, 0.4);
+  color: #cafff4;
+  border-color: rgba(202, 255, 244, 0.75);
+}
+
+.switch {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(233, 247, 255, 0.9);
+}
+
+.switch.secondary {
+  font-size: 13px;
+  gap: 10px;
+  color: rgba(233, 247, 255, 0.75);
+}
+
+.switch input[type="checkbox"] {
+  appearance: none;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(123, 232, 255, 0.35);
+  background: rgba(3, 58, 74, 0.75);
+  position: relative;
+  cursor: pointer;
+  transition: border 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.switch input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #7be8ff, #00a4ff);
+  box-shadow: 0 4px 10px rgba(0, 163, 255, 0.35);
+  transition: transform 0.2s ease;
+}
+
+.switch input[type="checkbox"]:checked {
+  background: rgba(0, 173, 239, 0.45);
+  border-color: rgba(0, 255, 209, 0.55);
+}
+
+.switch input[type="checkbox"]:checked::after {
+  transform: translateX(20px);
+  background: linear-gradient(160deg, #00ffd1, #00a7ff);
+  box-shadow: 0 4px 12px rgba(0, 217, 197, 0.4);
+}
+
+.switch input[type="checkbox"]:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.switch .slider {
+  display: none;
+}
+
+.switch .label {
+  line-height: 1.2;
+}
+
+.voice {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(233, 247, 255, 0.78);
+}
+
+.mode-switch {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  background: rgba(0, 37, 48, 0.6);
+  border-radius: 14px;
+  padding: 4px;
+  border: 1px solid rgba(0, 173, 239, 0.28);
+}
+
+.mode-option {
+  position: relative;
+  border: none;
+  background: transparent;
+  color: rgba(233, 247, 255, 0.62);
+  padding: 8px 10px;
+  border-radius: 10px;
+  font: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mode-option.active {
+  background: linear-gradient(135deg, rgba(0, 255, 209, 0.3), rgba(0, 173, 239, 0.38));
+  color: #e9f7ff;
+  box-shadow: inset 0 0 0 1px rgba(0, 255, 209, 0.4), 0 8px 16px rgba(0, 173, 239, 0.25);
+}
+
+.mode-option:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.mode-option:focus-visible {
+  outline: 2px solid rgba(0, 255, 209, 0.65);
+  outline-offset: 2px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(233, 247, 255, 0.75);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.status {
+  font-size: 11px;
+  min-height: 14px;
+  color: rgba(233, 247, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.status strong {
+  color: #7be8ff;
+}
+
+body.is-improving .status strong {
+  color: #7bffd8;
+}
+
+.container.disabled section.panel {
+  opacity: 0.55;
+  filter: grayscale(0.2);
+}
